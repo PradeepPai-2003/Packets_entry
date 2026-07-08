@@ -197,7 +197,7 @@ class GlobalConnectionTable:
             }
 
     def generate_report(self) -> str:
-        """Generate a formatted C++ style connection report."""
+        """Generate a formatted connection report."""
         stats = self.get_global_stats()
         
         report = []

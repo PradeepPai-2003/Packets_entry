@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from ..capture.pcap import RawPacket
 from ..utils.helpers import mac_to_str, ip_to_str
 
-# Constants matching C++ namespaces
+# Protocol flag and number constants
 class TCPFlags:
     FIN = 0x01
     SYN = 0x02

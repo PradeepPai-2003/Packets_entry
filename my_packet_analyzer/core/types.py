@@ -66,17 +66,6 @@ def sni_to_app_type(sni: str) -> AppType:
     # Check for known patterns
     # Google (including YouTube, which is owned by Google)
     if any(x in lower_sni for x in ["google", "gstatic", "googleapis", "ggpht", "gvt1"]):
-        # But check YouTube first if it has specific youtube substrings, or let it fall through
-        # Wait! In C++:
-        # If it matches Google, it returns GOOGLE. But wait! YouTube is checked *after* Google in C++!
-        # Wait, let's verify C++ types.cpp:
-        # line 70: Google check
-        # line 79: YouTube check
-        # That means if a domain has "youtube" in it, it matches Google check first?
-        # Wait, does "www.youtube.com" contain "google", "gstatic", "googleapis", "ggpht", "gvt1"?
-        # No! "youtube" does not contain any of those.
-        # But what about "youtube-ui.l.google.com"? That contains "google", so it would return GOOGLE.
-        # Let's match the exact C++ order:
         # 1. Google
         # 2. YouTube
         # 3. Facebook

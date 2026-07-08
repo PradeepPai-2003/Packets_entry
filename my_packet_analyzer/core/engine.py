@@ -11,10 +11,10 @@ from ..parser.protocols import PacketParser, ParsedPacket, TCPFlags, Protocol, E
 from ..rules.manager import RuleManager, BlockReason
 from ..tracker.flow import ConnectionTracker, GlobalConnectionTable
 
-# Deterministic hash function for FiveTuple matching C++ logic and avoiding interpreter randomization
+# Deterministic hash function for FiveTuple to ensure consistent packet-to-LB mapping
 def hash_tuple(t: FiveTuple) -> int:
     h = 0
-    # Combine fields exactly like C++ combining hash logic
+    # Combine fields to generate a hash code
     for val in (t.src_ip, t.dst_ip, t.src_port, t.dst_port, t.protocol):
         h = (h ^ val) + 0x9e3779b9 + (h << 6) + (h >> 2)
         h &= 0xFFFFFFFF  # Keep as 32-bit unsigned int
@@ -252,7 +252,7 @@ class DPIEngine:
     def __init__(self, config: Config):
         self.config = config
         
-        # Statistics (matching atomic layout in C++)
+        # Statistics
         self.total_packets = 0
         self.total_bytes = 0
         self.forwarded_packets = 0

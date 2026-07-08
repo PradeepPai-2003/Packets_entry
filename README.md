@@ -169,10 +169,6 @@ my_packet_analyzer/
 │   ├── test_parser.py        # Decoders validation
 │   ├── test_extractor.py     # DPI extraction verification
 │   └── test_rules.py         # Manager matching validations
-│
-└── legacy_cpp/               # Original C++ reference implementation
-    ├── include/              # Legay headers
-    └── src/                  # Legacy source cpp files
 ```
 
 ---
@@ -307,7 +303,7 @@ python -m unittest discover -s tests
 
 ## 11. Understanding the Output
 
-The engine prints a detailed C++ aligned ASCII table on completion:
+The engine prints a detailed aligned ASCII table on completion:
 
 ```
 ╔══════════════════════════════════════════════════════════════╗

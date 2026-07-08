@@ -152,7 +152,7 @@ class HTTPHostExtractor:
         length = len(payload)
         
         # Search for "Host: " case-insensitively
-        # In C++, search checks for case-insensitive 'H','o','s','t',':'
+        # Perform case-insensitive check for 'H','o','s','t',':'
         for i in range(length - 5):
             if (payload[i] in (72, 104) and      # 'H' or 'h'
                 payload[i+1] in (111, 79) and    # 'o' or 'O'

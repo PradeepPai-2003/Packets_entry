@@ -11,7 +11,7 @@ from .core.types import AppType
 from .utils.helpers import setup_logging
 
 def print_packet_summary(pkt: ParsedPacket, packet_num: int) -> None:
-    """Print packet details matching src/main.cpp format."""
+    """Print packet details in a structured format."""
     try:
         dt = datetime.datetime.fromtimestamp(pkt.timestamp_sec)
         time_str = dt.strftime("%Y-%m-%d %H:%M:%S")
@@ -72,7 +72,7 @@ def print_packet_summary(pkt: ParsedPacket, packet_num: int) -> None:
 
 
 def run_print_mode(input_file: str, max_packets: int) -> int:
-    """Run in print mode (replicates main.cpp)."""
+    """Run in packet print mode to parse and display packet summaries."""
     print("====================================")
     print("     Packet Analyzer v1.0")
     print("====================================\n")
