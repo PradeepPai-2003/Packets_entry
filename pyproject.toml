@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_packet_analyzer"
+version = "1.0.0"
+description = "Deep Packet Inspection and filtering engine in Python"
+readme = "README.md"
+authors = [
+    { name = "Developer", email = "developer@example.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+dpi-analyzer = "my_packet_analyzer.main:main"
